@@ -1,1 +1,11 @@
-<h1>You are on {{ pageTitle }} Home Page</h1>
+{% if pageTitle %}
+<h1>Page Title passed : {{ pageTitle }}</h1>
+{% else %}
+<h1>Page Title Not Passed : Default</h1>
+{% endif %}
+
+{% if titles %}
+{% for singleTitle in titles %}
+<h3>{{ singleTitle }}</h3>
+{% endfor %}
+{% endif %}
