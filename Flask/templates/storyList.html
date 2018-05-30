@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <a href="{{ url_for('newstory') }}" class="btn btn-lg btn-primary btn-block">New Story</a>
+    {% if storyTitle and storyDesc %}
+    <h2>Story By Params</h2>
+    <div class="well well-sm">{{ storyTitle }}</div>
+    <!--<div class="well">Normal Well</div>-->
+    <div class="well well-lg">{{ storyDesc }}</div>
+    {% endif %}
+    <h2>Story From DB</h2>
+    <div class="well well-sm">Title</div>
+    <!--<div class="well">Normal Well</div>-->
+    <div class="well well-lg">Desc</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Signin Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/signin.css') }}" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+    <form class="form-signin" method="post" action="/process/">
+      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Create New Story</h1>
+      <label for="inputStory" class="sr-only">Story Title</label>
+      <input type="text" id="inputStory" name="inputStory" class="form-control mb-3" placeholder="Story Title" required autofocus>
+      <label for="inputDescription" class="sr-only">Description</label>
+      <textarea id="inputDescription" name="inputDescription" class="form-control mb-3" placeholder="Description" required></textarea>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+      <p class="mt-5 mb-3 text-muted"></p>
+    </form>
+  </body>
+</html>
