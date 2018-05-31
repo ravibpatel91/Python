@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -36,8 +36,7 @@ def processstory():
     story = Stories(title=storyTitle, desc=storyDesc)
     db.session.add(story)
     db.session.commit()
-
-    return render_template('storyList.html', storyTitle=storyTitle, storyDesc=storyDesc)
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
