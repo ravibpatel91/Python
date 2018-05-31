@@ -7,13 +7,19 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+
 # Code Continue
-#class Stories(db.app):
+class Stories(db.Model):
+    storyid = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100))
+    desc = db.Column(db.String(500))
+
 
 # Defining URL Route | Action Name
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('storyList.html')
+    storyList = Stories.query.all()
+    return render_template('storyList.html', storyList=storyList)
 
 
 # Defining URL Route | Action Name
@@ -27,6 +33,10 @@ def newstory():
 def processstory():
     storyTitle = request.form['inputStory']
     storyDesc = request.form['inputDescription']
+    story = Stories(title=storyTitle, desc=storyDesc)
+    db.session.add(story)
+    db.session.commit()
+
     return render_template('storyList.html', storyTitle=storyTitle, storyDesc=storyDesc)
 
 
