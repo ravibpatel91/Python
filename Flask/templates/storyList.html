@@ -16,10 +16,14 @@
     <!--<div class="well">Normal Well</div>-->
     <div class="well well-lg">{{ storyDesc }}</div>
     {% endif %}
-    <h2>Story From DB</h2>
-    <div class="well well-sm">Title</div>
+    {% if storyList %}
+    <h2>Stories From DB</h2>
+    {% for story in storyList %}
+    <div class="well well-sm">{{ story.title }}</div>
     <!--<div class="well">Normal Well</div>-->
-    <div class="well well-lg">Desc</div>
+    <div class="well well-lg">{{ story.desc }}</div>
+    {% endfor %}
+    {% endif %}
 </div>
 
 </body>
